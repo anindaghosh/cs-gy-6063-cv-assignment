@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1.0">
+    <title>Resume</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 20px;
+            background-color: #f4f4f4;
+        }
+
+        .container {
+            width: 800px;
+            margin: 0 auto;
+            background-color: white;
+            padding: 20px;
+            box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+        }
+
+        h1 {
+            font-size: 28px;
+            margin-bottom: 10px;
+            color: #333;
+        }
+
+        h2 {
+            font-size: 22px;
+            margin-top: 30px;
+            border-bottom: 2px solid #333;
+            padding-bottom: 5px;
+        }
+
+        p {
+            margin: 5px 0;
+        }
+
+        ul {
+            list-style-type: none;
+            padding: 0;
+        }
+
+        li {
+            margin-bottom: 10px;
+        }
+
+        .contact-info {
+            margin-bottom: 20px;
+        }
+
+        .contact-info p {
+            font-size: 14px;
+        }
+
+        .section {
+            margin-bottom: 20px;
+        }
+
+        .skills,
+        .education,
+        .experience {
+            margin-top: 10px;
+        }
+        
+        .skills {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+        }
+        
+        .skills li {
+            display: inline;
+            background-color: #333;
+            color: white;
+            padding: 5px;
+            margin-right: 10px;
+            border-radius: 3px;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <h1>Aninda Ghosh</h1>
+        <div class="contact-info">
+            <p><strong>Email:</strong> <a href="mailto:aninda.ghosh@nyu.edu">aninda.ghosh@nyu.edu</a></p>
+            <p><strong>Phone:</strong> +1 929-382-0264</p>
+            <p><strong>LinkedIn:</strong> <a href="https://www.linkedin.com/in/anindaghosh99/">anindaghosh99</a></p>
+            <p><strong>GitHub:</strong> <a href="https://github.com/anindaghosh">anindaghosh</a></p>
+            <p><strong>Location:</strong> New York, NY</p>
+        </div>
+
+        <h2>Professional Summary</h2>
+        <p>Currently a Graduate Student at New York University. Previously Solutions Architect for the world's largest
+            brewer. Experienced Undergraduate with a demonstrated history of
+            working in the research industry. Strong professional with 3 years of experience working with different
+            technologies in the Automation landscape with a defined skillset in Cloud, Full Stack, Machine Learning,
+            Native
+            Android development. Having extensively worked with different operational teams across the business,
+            delivering disruptive solutions.
+
+            Wanting to expand my current skillset into a more strategic and impact oriented product development track.
+        </p>
+
+        <h2>Skills</h2>
+        <ul class="skills">
+            {% for skill in skills %}
+            <li>{{ skill }}</li>
+            {% endfor %}
+        </ul>
+
+        <h2>Education</h2>
+        <div class="education">
+            <p><strong>New York University</strong></p>
+            <p>Master of Science, Computer Science (Expected: May 2026)</p>
+            <p><strong>SRM Insitute of Science and Technology</strong></p>
+            <p>B. Tech, Computer Science and Engineering (2017 - 2021)</p>
+            <p><strong>Thesis:</strong> Content Based Item-Item Recommendation System based on User Interactions in
+                E-Commerce Applications (April 2021)</p>
+            <p><strong>Relevant Coursework:</strong> Artificial Intelligence, Database Management Systems, Mobile
+            Application Development, Data Structures, Web Programming, Data Science & Big Data Analytics</p>
+        </div>
+
+        <h2>Professional Experience</h2>
+        <div class="experience">
+            {% for experience in professional_experience %}
+            <p><strong>{{ experience.position }}, {{ experience.organization }}</strong></p>
+            <p>{{ experience.duration }}</p>
+            <ul style="list-style:disc; margin-left:1rem">
+                {% for item in experience.responsibilites %}
+                    <li>{{ item }}</li>
+                {% endfor %}
+            </ul>
+            {% endfor %}
+        </div>
+
+        <h2>Publications</h2>
+        {% for publication in publications %}
+            <p><strong>{{ publication.title }}</strong></p>
+            <ul style="list-style:disc; margin-left:1rem">
+                <li>Published in <strong>{{ publication.organization }}</strong></li>
+                <ul style="list-style:circle; margin-left:1rem">
+                    <li><strong>{{ publication.edition }}.</strong> DOI: {{ publication.doi }} </li>
+                </ul>
+            </ul>
+        {% endfor %}
+    </div>
+</body>
+
+</html>
