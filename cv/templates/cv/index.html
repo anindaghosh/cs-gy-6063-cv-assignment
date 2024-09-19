@@ -5,149 +5,210 @@
     <meta charset="UTF-8">
     <meta name="viewport"
           content="width=device-width, initial-scale=1.0">
-    <title>Resume</title>
+    <title>Resume - Aninda Ghosh</title>
     <style>
         body {
             font-family: Arial, sans-serif;
             margin: 0;
-            padding: 20px;
+            padding: 0;
             background-color: #f4f4f4;
         }
 
         .container {
-            width: 800px;
-            margin: 0 auto;
-            background-color: white;
+            display: flex;
+            height: 100vh;
+        }
+
+        .sidebar {
+            width: 300px;
+            background-color: #000;
+            color: #fff;
             padding: 20px;
-            box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+            box-sizing: border-box;
         }
 
-        h1 {
-            font-size: 28px;
-            margin-bottom: 10px;
-            color: #333;
+        .sidebar h2 {
+            margin: 0 0 20px;
+            padding-bottom: 10px;
+            border-bottom: 1px solid #555;
         }
 
-        h2 {
-            font-size: 22px;
-            margin-top: 30px;
+        .sidebar a {
+            display: block;
+            color: #fff;
+            padding: 10px;
+            margin: 10px 0;
+            text-decoration: none;
+            border-radius: 4px;
+        }
+
+        .sidebar a:hover {
+            background-color: #555;
+        }
+
+        .content {
+            flex-grow: 1;
+            padding: 20px;
+            box-sizing: border-box;
+            background-color: #fff;
+            overflow-y: auto;
+        }
+
+        .section {
+            margin-bottom: 30px;
+        }
+
+        .section h2 {
             border-bottom: 2px solid #333;
             padding-bottom: 5px;
         }
 
-        p {
-            margin: 5px 0;
-        }
-
-        ul {
-            list-style-type: none;
+        .section ul {
+            list-style: none;
             padding: 0;
         }
 
-        li {
+        .section ul li {
             margin-bottom: 10px;
         }
 
-        .contact-info {
-            margin-bottom: 20px;
-        }
-
-        .contact-info p {
-            font-size: 14px;
-        }
-
-        .section {
-            margin-bottom: 20px;
-        }
-
-        .skills,
-        .education,
-        .experience {
-            margin-top: 10px;
-        }
-        
         .skills {
             display: flex;
             flex-wrap: wrap;
-            gap: 10px;
         }
-        
-        .skills li {
-            display: inline;
-            background-color: #333;
-            color: white;
-            padding: 5px;
-            margin-right: 10px;
-            border-radius: 3px;
+
+        .skills span {
+            background-color: #ddd;
+            padding: 5px 10px;
+            margin: 5px;
+            border-radius: 20px;
+            font-size: 0.9em;
+        }
+
+        .footer {
+            text-align: center;
+            padding: 10px;
+            background-color: #edd900;
+            color: #000;
+            position: absolute;
+            bottom: 0;
+            width: 100%;
+            font-weight: 800;
         }
     </style>
 </head>
 
 <body>
     <div class="container">
-        <h1>Aninda Ghosh</h1>
-        <div class="contact-info">
-            <p><strong>Email:</strong> <a href="mailto:aninda.ghosh@nyu.edu">aninda.ghosh@nyu.edu</a></p>
-            <p><strong>Phone:</strong> +1 929-382-0264</p>
-            <p><strong>LinkedIn:</strong> <a href="https://www.linkedin.com/in/anindaghosh99/">anindaghosh99</a></p>
-            <p><strong>GitHub:</strong> <a href="https://github.com/anindaghosh">anindaghosh</a></p>
-            <p><strong>Location:</strong> New York, NY</p>
+        <div class="sidebar">
+            <h2>Aninda Ghosh</h2>
+            <a href="#summary">Summary</a>
+            <a href="#experience">Experience</a>
+            <a href="#education">Education</a>
+            <a href="#skills">Skills</a>
+            <a href="#publications">Publications</a>
+            <a href="#contact">Contact</a>
         </div>
 
-        <h2>Professional Summary</h2>
-        <p>Currently a Graduate Student at New York University. Previously Solutions Architect for the world's largest
-            brewer. Experienced Undergraduate with a demonstrated history of
-            working in the research industry. Strong professional with 3 years of experience working with different
-            technologies in the Automation landscape with a defined skillset in Cloud, Full Stack, Machine Learning,
-            Native
-            Android development. Having extensively worked with different operational teams across the business,
-            delivering disruptive solutions.
+        <div class="content">
+            <section id="summary"
+                     class="section">
+                <h2>Summary</h2>
+                <p>
+                    Currently a Graduate Student at New York University. Previously Solutions Architect for the world's
+                    largest
+                    brewer. Experienced Undergraduate with a demonstrated history of
+                    working in the research industry. Strong professional with 3 years of experience working with
+                    different
+                    technologies in the Automation landscape with a defined skillset in Cloud, Full Stack, Machine
+                    Learning,
+                    Native
+                    Android development. Having extensively worked with different operational teams across the business,
+                    delivering disruptive solutions.
 
-            Wanting to expand my current skillset into a more strategic and impact oriented product development track.
-        </p>
+                    Wanting to expand my current skillset into a more strategic and impact oriented product development
+                    track.
+                </p>
+            </section>
 
-        <h2>Skills</h2>
-        <ul class="skills">
-            {% for skill in skills %}
-            <li>{{ skill }}</li>
-            {% endfor %}
-        </ul>
-
-        <h2>Education</h2>
-        <div class="education">
-            <p><strong>New York University</strong></p>
-            <p>Master of Science, Computer Science (Expected: May 2026)</p>
-            <p><strong>SRM Insitute of Science and Technology</strong></p>
-            <p>B. Tech, Computer Science and Engineering (2017 - 2021)</p>
-            <p><strong>Thesis:</strong> Content Based Item-Item Recommendation System based on User Interactions in
-                E-Commerce Applications (April 2021)</p>
-            <p><strong>Relevant Coursework:</strong> Artificial Intelligence, Database Management Systems, Mobile
-            Application Development, Data Structures, Web Programming, Data Science & Big Data Analytics</p>
-        </div>
-
-        <h2>Professional Experience</h2>
-        <div class="experience">
-            {% for experience in professional_experience %}
-            <p><strong>{{ experience.position }}, {{ experience.organization }}</strong></p>
-            <p>{{ experience.duration }}</p>
-            <ul style="list-style:disc; margin-left:1rem">
-                {% for item in experience.responsibilites %}
-                    <li>{{ item }}</li>
-                {% endfor %}
-            </ul>
-            {% endfor %}
-        </div>
-
-        <h2>Publications</h2>
-        {% for publication in publications %}
-            <p><strong>{{ publication.title }}</strong></p>
-            <ul style="list-style:disc; margin-left:1rem">
-                <li>Published in <strong>{{ publication.organization }}</strong></li>
-                <ul style="list-style:circle; margin-left:1rem">
-                    <li><strong>{{ publication.edition }}.</strong> DOI: {{ publication.doi }} </li>
+            <section id="experience"
+                     class="section">
+                <h2>Professional Experience</h2>
+                {% for experience in professional_experience %}
+                <ul>
+                    <li>
+                        <strong>{{ experience.position }}</strong> - {{ experience.organization }}<br>
+                        <em>{{ experience.duration }}</em>
+                        <ul style="list-style:disc; margin-left:1rem">
+                            {% for item in experience.responsibilites %}
+                            <li>{{ item }}</li>
+                            {% endfor %}
+                        </ul>
+                    </li>
                 </ul>
-            </ul>
-        {% endfor %}
+                {% endfor %}
+            </section>
+
+            <section id="education"
+                     class="section">
+                <h2>Education</h2>
+                <ul>
+                    <li>
+                        <strong>New York University</strong><br>
+                        Master of Science, Computer Science (Expected: May 2026)
+                    </li>
+                    <li>
+                        <strong>SRM Insitute of Science and Technology</strong><br>
+                        B. Tech, Computer Science and Engineering (2017 - 2021)
+                        <p><strong>Thesis:</strong> Content Based Item-Item Recommendation System based on User
+                            Interactions in
+                            E-Commerce Applications (April 2021)</p>
+                        <p><strong>Relevant Coursework:</strong> Artificial Intelligence, Database Management Systems,
+                            Mobile
+                            Application Development, Data Structures, Web Programming, Data Science & Big Data Analytics
+                        </p>
+                    </li>
+                </ul>
+            </section>
+
+            <section id="skills"
+                     class="section">
+                <h2>Skills</h2>
+                <div class="skills">
+                    {% for skill in skills %}
+                    <span>{{ skill }}</span>
+                    {% endfor %}
+                </div>
+            </section>
+
+            <section id="publications"
+                     class="section">
+                <h2>Publications</h2>
+                {% for publication in publications %}
+                <p><strong>{{ publication.title }}</strong></p>
+                <ul style="list-style:disc; margin-left:1rem">
+                    <li>Published in <strong>{{ publication.organization }}</strong></li>
+                    <ul style="list-style:circle; margin-left:1rem">
+                        <li><strong>{{ publication.edition }}.</strong> DOI: {{ publication.doi }} </li>
+                    </ul>
+                </ul>
+                {% endfor %}
+            </section>
+
+            <section id="contact"
+                     class="section">
+                <h2>Contact</h2>
+                <p><strong>Email:</strong> <a href="mailto:aninda.ghosh@nyu.edu">aninda.ghosh@nyu.edu</a></p>
+                <p><strong>Phone:</strong> +1 929-382-0264</p>
+                <p><strong>LinkedIn:</strong> <a href="https://www.linkedin.com/in/anindaghosh99/">anindaghosh99</a></p>
+                <p><strong>GitHub:</strong> <a href="https://github.com/anindaghosh">anindaghosh</a></p>
+                <p><strong>Location:</strong> New York, NY</p>
+            </section>
+        </div>
+    </div>
+
+    <div class="footer">
+        &copy; 2024 Aninda Ghosh - All Rights Reserved
     </div>
 </body>
 
